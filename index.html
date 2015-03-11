@@ -16,11 +16,11 @@
     <title>Custom Spotify Client</title>
   </head>
   <body class="background-color-primary-4">
-    <header>
+    <header ng-app= "myApp" ng-controller="controllerHome">
       <div class="topbar background-color-primary-0 transparent shadow">
         <span class="app-name">Custom Spotify Client</span>
         <form class="search-form">
-          <input type="text" class="search-input" name="search" placeholder="Search for an artist or album" value=""><button class="search-button color-primary-0-hover" title="Search"><span class="icon-search"></span></button>
+          <input type="text" class="search-input" name="search" placeholder="Search for an artist or album" value=""><button id="searchbutton" class="search-button color-primary-0-hover" title="Search"><span class="icon-search"></span></button>
         </form>
       </div>
     </header>
