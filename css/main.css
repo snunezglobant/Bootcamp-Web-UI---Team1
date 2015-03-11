@@ -1,5 +1,43 @@
+@media screen and (max-width: 768px) {
+  .topbar {
+    position: absolute;
+    padding: 0 1rem;
+  }
+
+  .topbar > * {
+    margin: 0.8rem 0;
+  }
+
+  .topbar .app-name {
+    width: 100%;
+  }
+
+  .topbar .search-form {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .topbar {
+    position: fixed;
+    padding-right: 2rem;
+    padding-left: 1rem;
+  }
+
+  .topbar > * {
+    margin: 0.8rem 0.5rem;
+  }
+
+  .topbar .app-name {
+    width: auto;
+  }
+
+  .topbar .search-form {
+    width: 25rem;
+  }
+}
+
 .topbar {
-  position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
@@ -7,19 +45,18 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
-  padding-right: 2rem;
-  padding-left: 1rem;
+  overflow: auto;
 }
 
 /* vertically center all topbar children */
 .topbar > * {
   display: inline-block;
-  margin: 0.8rem 0.5rem;
 }
 
 .topbar .app-name {
   font-size: 1.2rem;
   font-weight: bold;
+  text-align: center;
   text-shadow: 0 0 20px #000;
 
   color: #fff;
@@ -32,13 +69,13 @@
 
 .search-form {
   float: right;
-  overflow: auto;
 
   white-space: nowrap;
 }
 
 .search-input {
-  width: 20rem;
+  width: -webkit-calc(100% - 2rem);
+  width: calc(100% - 2rem);
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 
@@ -49,6 +86,8 @@
 }
 
 .search-button {
+  width: 2rem;
+
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
