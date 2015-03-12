@@ -15,7 +15,7 @@
       <script src="js/main.js"></script>    
       <title>Custom Spotify Client</title>
    </head>
-   <body class="background-color-primary-4" ng-controller="controllerHome">
+   <body class="background-color-primary-4" ng-controller="searchController">
       <header>
          <div class="topbar background-color-primary-0 transparent shadow">
             <span class="app-name">Custom Spotify Client</span>
@@ -27,22 +27,14 @@
          </div>
       </header>
       <section class="main">
-         <div>
-            <ul ng-if = "searchItem.name === 'artist'">
-               <li ng-repeat="artist in artists">
-                  <p id="name">{{artist.name}}</p>
-                  <img ng-src={{artist.images[2].url}}><img>            
-               </li>
-            </ul>
-         </div>
-         <div>
-            <ul ng-if = "searchItem.name === 'album'">
-               <li ng-repeat="album in albums">
-                  <p id="name">{{album.name}}</p>
-                  <img ng-src={{album.images[2].url}}><img>            
-               </li>
-            </ul>
-         </div>
+        <div ng-repeat="search in searchs.artists.items">
+              {{search.name}} <br>
+        <img ng-src="{{search.images[1].url}}" class="cover">
+        </div>
+        <div ng-repeat="search in searchs.albums.items">
+              {{search.name}} <br>
+         <img ng-src="{{search.images[1].url}}" class="cover"> 
+      </div>
       </section>
    </body>
 </html>
