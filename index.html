@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/theme-dark-blue.css" id="css-theme">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="templates/settings.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
@@ -16,68 +17,17 @@
     <title>Custom Spotify Client</title>
   </head>
   <body class="background-color-primary-4">
-    <header ng-app= "myApp" ng-controller="controllerHome">
-      <div class="topbar background-color-primary-0 transparent shadow">
-        <span class="app-name">Custom Spotify Client</span>
-        <form class="search-form">
-          <input type="text" class="search-input" name="search" placeholder="Search for an artist or album" value=""><button id="searchbutton" class="search-button color-primary-0-hover" title="Search"><span class="icon-search"></span></button>
-        </form>
+    <header>
+      <div class="topbar background-color-primary-0 transparent shadow" ng-controller="TopbarController as topbarCtrl">
+        <a class="app-name" href="#/">Custom Spotify Client</a>
+          <button class="settings-button" title="Settings" ng-click="topbarCtrl.settings();"><span class="icon-settings"></span></button>
+          <form class="search-form">
+            <input type="text" class="search-input" name="search" placeholder="Search for an artist or album" value=""><button id="searchbutton" class="search-button color-primary-0-hover" title="Search"><span class="icon-search"></span></button>
+          </form>
       </div>
     </header>
     <section class="main">
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
-      <p>text</p>
+      <div class="view" ng-view></div>
     </section>
   </body>
 </html>

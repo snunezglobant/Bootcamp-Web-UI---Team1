@@ -1,23 +1,42 @@
-var app = angular.module('myApp', ["ngRoute"]);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
-app.config(function($routeProvider){
+myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-  .when("/", {
-    controller: "controllerHome",
-    templateUrl: "index.html"
-  })
-  .otherwise({
-    redirectTo: "/"
-  });;
-});
+    .when('/settings', {
+      controller: 'SettingsController',
+      controllerAs: 'settingsCtrl',
+      templateUrl: 'templates/settings.html'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+}]);
 
+myApp.controller('TopbarController', ['$location', function($location){
+  this.settings = function() {
+    $location.path('/settings');
+  }
+}])
 
-app.controller("controllerHome" ,function ($scope, $http) {
- $("#searchbutton").click(function(){
-  var1=$(".search-input").val();
-  $http.get("https://api.spotify.com/v1/search?q="+ var1+"&type=album").success(function(data)
-    {$scope.albums=data;
-      console.log(data);});
-});
-});
+myApp.controller('SettingsController', ['$scope', function($scope) {
+  this.setTheme = function(name) {
+    $('#css-theme').attr('href', 'css/' + name + '.css');
+    localStorage.setItem('css-theme', name);
+  };
+}]);
+
+myApp.directive('goBack', [function(){
+  return {
+    restrict: 'A',
+    link: function($scope, iElm, iAttrs, controller) {
+      iElm.bind('click', function() {
+        history.back();
+      });
+    }
+  };
+}]);
+
+var cssTheme = localStorage.getItem('css-theme');
+if (cssTheme)
+$('#css-theme').attr('href', 'css/' + cssTheme + '.css');
 

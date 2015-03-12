@@ -1,0 +1,28 @@
+section.themes {
+  text-align: center;
+}
+
+.theme-item {
+  display: inline-block;
+  width: 8rem;
+  margin: 2rem;
+}
+
+.set-theme {
+  width: 5rem;
+  height: 5rem;
+
+  border: none;
+}
+
+.set-theme.dark-blue {
+  background: -webkit-gradient(linear, left top, right bottom, from(#1483ff), to(#00336d));
+  background: -webkit-linear-gradient(top left, #1483ff, #00336d);
+  background: linear-gradient(to bottom right, #1483ff, #00336d);
+}
+
+.set-theme.light-blue {
+  background: -webkit-gradient(linear, left top, right bottom, from(#00336d), to(#1483ff));
+  background: -webkit-linear-gradient(top left, #00336d, #1483ff);
+  background: linear-gradient(to bottom right, #00336d, #1483ff);
+}

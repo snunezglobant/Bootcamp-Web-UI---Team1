@@ -1,3 +1,4 @@
+/* MediaQuery: Screens narrower than 768px */
 @media screen and (max-width: 768px) {
   .topbar {
     position: absolute;
@@ -35,25 +36,29 @@
   }
 
   .topbar .search-form {
-    width: 100%;
+    width: -webkit-calc(100% - 5rem);
+    width: calc(100% - 5rem);
   }
 
   section.main {
     margin-top: 7.5rem;
   }
 }
+/* END of MediaQuery */
 
+
+/* MediaQuery: Screens wider than 768px */
 @media screen and (min-width: 769px) {
   .topbar {
     position: fixed;
     top: 0;
     height: 3rem;
-    padding-right: 2rem;
+    padding-right: 0;
     padding-left: 1rem;
   }
 
   .topbar > * {
-    margin: 0 0.5rem;
+    margin: 0;
 
     line-height: 3rem;
   }
@@ -70,9 +75,34 @@
     line-height: normal;
   }
 
+  .topbar .settings-button {
+    height: 3rem;
+  }
+
   section.main {
     margin-top: 4.5rem;
   }
+}
+/* END of MediaQuery */
+
+
+h1 {
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  color: #000;
+}
+
+/* remove blue outline when element is focused */
+button:focus,
+input:focus {
+  outline: none;
 }
 
 .topbar {
@@ -98,7 +128,6 @@
   text-shadow: 0 0 20px #000;
 
   color: #fff;
-  cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -107,13 +136,15 @@
 
 .search-form {
   float: right;
+  margin-right: 1rem;
 
   white-space: nowrap;
 }
 
 .search-input {
   width: -webkit-calc(100% - 2rem);
-  width: calc(100% - 2rem);
+  width: -webkit-calc(100% - 2rem );
+  width: calc(100% - 2rem );
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 
@@ -146,13 +177,58 @@
   background-color: #fff;
 }
 
-/* remove blue outline when element is focused */
-.search-input:focus,
-.search-button:focus {
-  outline: none;
+.settings-button {
+  float: right;
+  width: 3rem;
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 1.4rem;
+
+  color: #fff;
 }
 
 .shadow {
   -webkit-box-shadow: 0 0 10px #000;
   box-shadow: 0 0 10px #000;
+}
+
+.zoom-hover:hover {
+  -webkit-transition: -webkit-transform 150ms;
+  transition: transform 150ms;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.zoom-hover:active {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.view.ng-enter {
+  opacity: 0;
+  -webkit-transition: all 600ms ease-in-out 400ms;
+  transition: all 600ms ease-in-out 400ms;
+}
+
+.view.ng-enter-active {
+  opacity: 1;
+}
+
+.view.ng-leave {
+  opacity: 1;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+.view.ng-leave-active {
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
 }

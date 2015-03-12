@@ -54,7 +54,7 @@
 }
 
 .background-color-primary-0.transparent {
-  background-color: rgba(20, 131, 255, 0.6);
+  background-color: rgba(20, 131, 255, 0.8);
 }
 
 
@@ -77,4 +77,8 @@
 
 .color-complement-4 {
   color: #a76500;
+}
+
+body {
+  color: #fff;
 }
