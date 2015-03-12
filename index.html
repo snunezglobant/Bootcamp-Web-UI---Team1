@@ -14,26 +14,31 @@
       <script src="js/app.js"></script>
       <script src="js/main.js"></script>    
       <title>Custom Spotify Client</title>
+      
    </head>
    <body class="background-color-primary-4" ng-controller="searchController">
       <header>
          <div class="topbar background-color-primary-0 transparent shadow">
             <span class="app-name">Custom Spotify Client</span>
-            <select class="form-control" ng-init="searchItem = searchsArray[1]" ng-model="searchItem" ng-options="label as label.name for label in searchsArray">
-            </select>
             <form ng-submit="submit()" class="search-form">
                <input type="text" class="search-input" name="search" placeholder="Search for an artist or album" value=""><button id="searchbutton" class="search-button color-primary-0-hover" title="Search"><span class="icon-search"></span></button>
             </form>
          </div>
       </header>
-      <section class="main">
+      <section class="main" ng-show="viewEnable">
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="">VIEW ARTIST PAGE</a>
         <div ng-repeat="search in searchs.artists.items">
               {{search.name}} <br>
-        <img ng-src="{{search.images[1].url}}" class="cover">
+        <img ng-src="{{search.images[2].url}}" class="cover">
         </div>
+        <h1>ARTIST ALBUMS</h1>
         <div ng-repeat="search in searchs.albums.items">
               {{search.name}} <br>
-         <img ng-src="{{search.images[1].url}}" class="cover"> 
+         <img ng-src="{{search.images[2].url}}" class="cover"> 
       </div>
       </section>
    </body>
