@@ -1,0 +1,12 @@
+<div >   
+   <span>NAME: {{searchs.name}} <br></span>
+   <span>POPULARITY: {{searchs.popularity}} <br></span>
+   <span>GENRES: </span>
+   <div ng-repeat="genres in searchs.genres">
+  {{genres}} <br>
+	</div>
+	<div>
+   <img ng-src="{{searchs.images[1].url}}" class="cover">
+   <a ng-href="#/searchartistalbums/{{searchs.id}}">view details</a> 
+   <a ng-href="#/searchrelatedartist/{{searchs.id}}">view related artist</a>  
+</div>

@@ -1,0 +1,14 @@
+<div >   
+   <span>ALBUM NAME: {{searchs.name}} <br></span>
+   <span>RELEASE DATE: {{searchs.release_date}} <br></span>
+   <span>POPULARITY: {{searchs.popularity}} <br></span>
+   <span>ARTIST NAME: </span>
+   <div ng-repeat="artist in searchs.artists">{{artist.name}} <br></div>
+  <span>GENRES: </span>
+  <div ng-repeat="genre in searchs.genres">{{genre}} <br></div>
+  <span>COVER: </span>
+  <div>
+  <img ng-src="{{searchs.images[1].url}}" class="cover"> 
+</div>
+ <a ng-href="#/searchalbumtracks/{{searchs.id}}">view album tracks</a>
+</div>
