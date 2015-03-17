@@ -34,3 +34,21 @@
     </tbody>
   </table>
 </div>
+<div >
+  <span>ALBUM NAME: {{albumCtrl.search.name}} <br></span>
+  <span>RELEASE DATE: {{albumCtrl.search.release_date}} <br></span>
+  <span>POPULARITY: {{albumCtrl.search.popularity}} <br></span>
+  <span>ARTIST NAME: </span>
+  <div ng-repeat="artist in albumCtrl.search.artists">
+    {{artist.name}} <br>
+  </div>
+  <span>GENRES: </span>
+  <div ng-repeat="genre in albumCtrl.search.genres">
+    {{genre}} <br>
+  </div>
+  <span>COVER: </span>
+  <div>
+    <img ng-src="{{albumCtrl.search.images[1].url}}" class="cover">
+  </div>
+  <a ng-href="#/searchalbumtracks/{{albumCtrl.search.id}}">view album tracks</a>
+</div>
