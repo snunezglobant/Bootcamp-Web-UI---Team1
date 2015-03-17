@@ -5,11 +5,12 @@
 <ul class="ul-details" ng-repeat="search in artistAlbumsCtrl.search.items">
   <div class="div-details">
    <li class="image-container">
-    <a ng-href="#/searchartist/{{search.id}}"><img class="image-view"ng-show="search.images.length" ng-src="{{search.images[0].url}}" class="cover" >
+    <a ng-href="#/searchalbumtracks/{{search.id}}"><img class="image-view"ng-show="search.images.length" ng-src="{{search.images[0].url}}" class="cover" >
       <img class="image-view" ng-show="search.images.length<=0" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover"></li>
   <li class="text-details"> {{search.name}}</li></a></div>
 </ul>
 </div>
 <nav nav-buttons type="albums" model="artistAlbumsCtrl.search"></nav>
+<button go-back></button>
 
 

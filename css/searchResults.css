@@ -1,15 +1,18 @@
 .div-details{
   background: linear-gradient(black, grey);
-  box-shadow: 5px 5px 50px 5px lightblue;
+  box-shadow: 5px 5px 50px 5px lightblue;  
 } 
-
+.div-width{
+	max-width: 14rem;
+}
 .ul-details{
 	vertical-align: top;
   display: inline-block;
+  list-style: none;
 }
 
 .image-view{
-    height:200px;
+    
    	width: 200px;
  	margin: 2px;
  	border-width: 0.1rem;
@@ -39,7 +42,13 @@
 	color: white;
 	font-size: 13px;
 	text-align: center;
-	padding-top: 0.6rem;
+	padding-top: 0.6rem;	
+}
+.album-information{
+  margin-left: 5rem;
+}
+.album-link{
+	color: white;
 }
 
 

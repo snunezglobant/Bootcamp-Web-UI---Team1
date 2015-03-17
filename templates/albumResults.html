@@ -1,41 +1,23 @@
-<div>
-  <table border="0" class="album-table">
-    <tbody>
-      <tr>
-        <td>
-          <p class="center-text">
-            <a ng-href="#/searchalbumtracks/{{albumCtrl.search.id}}" class="color-complement-2">
-              <img ng-show="albumCtrl.search.images.length" ng-src="{{albumCtrl.search.images[1].url}}" class="cover">
-              <img ng-hide="albumCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover">
-              Click on the cover to see the track list
-            </a>
-          </p>
-        </td>
-        <td>
-          <p class="color-complement-0">
-            <b>ALBUM NAME: </b>
-            <span class="color-complement-1">{{albumCtrl.search.name}}</span>
-          </p>
-          <p class="color-complement-0">
-            <b>RELEASE DATE: </b>
-            <span class="color-complement-1">{{albumCtrl.search.release_date}}</span>
-          </p>
-          <p class="color-complement-0">
-            <b>POPULARITY: </b>
-            <span class="color-complement-1">{{albumCtrl.search.popularity}}</span>
-          </p>
-          <p class="color-complement-0" style="display: inline"><b>ARTIST NAME: </b></p>
-          <ul class="color-complement-1">
-            <li ng-repeat="artist in albumCtrl.search.artists">{{artist.name}}</li>
-          </ul>
-          <p class="color-complement-0"><b>GENRES: </b></p>
-          <ul class="color-complement-1">
-            <li ng-show="albumCtrl.search.genres.length" ng-repeat="genre in albumCtrl.search.genres">{{genre}}</li>
-            <li ng-hide="albumCtrl.search.genres.length">Undefined</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <button go-back></button>
+<diV>
+      <ul class="ul-details">
+        <div class="div-details">
+        <li>
+          <a ng-href="#/searchalbumtracks/{{albumCtrl.search.id}}">
+          <img class="image-view" ng-show="albumCtrl.search.images.length" ng-src="{{albumCtrl.search.images[0].url}}">
+          <img class="image-view" ng-hide="albumCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" ></a>
+        </li>
+      </div>
+      </ul>
+      <ul class="ul-details">
+         <div class="album-information">
+        <li>Album name: {{albumCtrl.search.name}}</li>
+        <li>Release Date: {{albumCtrl.search.release_date}}</li>
+        <li>Popularity:{{albumCtrl.search.popularity}}</li>
+        <li  ng-repeat="artist in albumCtrl.search.artists"> Artist name: {{artist.name}}</li>
+        <li ng-show="albumCtrl.search.genres.length" ng-repeat="genre in albumCtrl.search.genres">Genres: {{genre}}</li>
+        <li ng-hide="albumCtrl.search.genres.length">Genres: Not genres define</li>    
+         </div> 
+      </ul>
+
 </div>
+<button go-back></button>
