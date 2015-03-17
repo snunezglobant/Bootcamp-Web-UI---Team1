@@ -2,7 +2,7 @@
   <p ng-if="newReleases.waitingForAuth">Waiting for authorization...</p>
   <a href="" class="color-complement-0" ng-if="newReleases.popupError" ng-click="newReleases.authorize()">Your browser seems to be blocking Spotify's authorization pop-up window. Click on this message to try again.</a>
   <a href="" class="color-complement-0" ng-if="newReleases.authError" ng-click="newReleases.authorize()">Please, log in to Spotify and authorize this app to see new album releases on this page. Click on this message to open the authorization window again.</a>
-  <article>
+  <article ng-show="newReleases.albums">
     <header>
       <h1>New Releases</h1>
     </header>

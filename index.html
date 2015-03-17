@@ -24,7 +24,7 @@
       <div class="topbar background-color-primary-0 transparent shadow" ng-controller="TopbarController as topbarCtrl">
         <a class="app-name" href="#/" tabindex="1">Custom Spotify Client</a>
         <button class="settings-button background-color-primary-0-hover" title="Settings" ng-click="topbarCtrl.settings();" tabindex="3"><span class="icon-settings"></span></button>
-        <form class="search-form">
+        <form class="search-form" ng-submit="topbarCtrl.search()">
           <input type="search" class="search-input" name="search" placeholder="Search for an artist or album" value="" tabindex="2"><button type="submit" class="search-button color-primary-0-hover" title="Search" tabindex="-1"><span class="icon-search"></span></button>
         </form>
       </div>

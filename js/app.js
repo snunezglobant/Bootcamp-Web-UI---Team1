@@ -28,6 +28,36 @@
         controllerAs: 'settingsCtrl',
         templateUrl: 'templates/settings.html'
       })
+      .when('/search/:searchvalue', {
+        controller: 'SearchController',
+        controllerAs: 'searchCtrl',
+        templateUrl: 'templates/searchresults.html'
+      })
+      .when('/searchartist/:id', {
+        controller: 'ArtistController',
+        controllerAs: 'artistCtrl',
+        templateUrl: 'templates/artistresults.html'
+      })
+      .when('/searchartistalbums/:id', {
+        controller: 'ArtistAlbumsController',
+        controllerAs: 'artistAlbumsCtrl',
+        templateUrl: 'templates/artistalbumsresults.html'
+      })
+      .when('/searchrelatedartist/:artistid', {
+        controller: 'ArtistRelatedController',
+        controllerAs: 'artistRelatedCtrl',
+        templateUrl: 'templates/artistRelatedResults.html'
+      })
+      .when('/searchalbum/:albumid', {
+        controller: 'AlbumController',
+        controllerAs: 'albumCtrl',
+        templateUrl: 'templates/albumResults.html'
+      })
+      .when('/searchalbumtracks/:albumid', {
+        controller: 'AlbumTracksController',
+        controllerAs: 'albumTracksCtrl',
+        templateUrl: 'templates/albumTracksResults.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -45,7 +75,11 @@
     this.settings = function() {
       $location.url('/settings');
     }
-  }])
+
+    this.search = function() {
+      $location.url('/search/' + $('.search-input').val());
+    }
+  }]);
 
   myApp.controller('SettingsController', [function() {
     this.setTheme = function(name) {
@@ -79,6 +113,78 @@
       }
     }
   }]);
+
+  myApp.controller('SearchController', ['$http','$routeParams', function($http, $routeParams) {
+    var self = this;
+
+    $http.get('https://api.spotify.com/v1/search', {
+      params: {
+        q: $routeParams.searchvalue,
+        type: 'album,artist'
+      }})
+      .success(function(data) {
+        self.search = data;
+      });
+  }]);
+
+  myApp.controller('ArtistController', ['$http','$routeParams', function($http, $routeParams) {
+    var self = this;
+
+    $http.get('https://api.spotify.com/v1/artists/' + $routeParams.id)
+      .success(function(data) {
+        self.search = data;
+      });
+  }]);
+
+  myApp.controller('ArtistAlbumsController', ['$http','$routeParams', function($http, $routeParams) {
+    var self = this;
+
+    $http.get('https://api.spotify.com/v1/artists/' + $routeParams.id + '/albums')
+      .success(function(data) {
+        self.search = data;
+      });
+  }]);
+
+  myApp.controller('ArtistRelatedController', ['$http','$routeParams', function($http, $routeParams) {
+    var self = this;
+
+    $http.get('https://api.spotify.com/v1/artists/' + $routeParams.artistid + '/related-artists')
+      .success(function(data) {
+        self.search = data;
+      });
+  }]);
+
+  myApp.controller('AlbumController', ['$http','$routeParams', function($http, $routeParams) {
+    var self = this;
+
+    $http.get('https://api.spotify.com/v1/albums/' + $routeParams.albumid)
+      .success(function(data) {
+        self.search = data;
+      });
+  }]);
+
+  myApp.controller('AlbumTracksController', ['$http','$routeParams', function($http, $routeParams) {
+    var self = this;
+
+    $http.get('https://api.spotify.com/v1/albums/' + $routeParams.albumid + '/tracks')
+      .success(function(data) {
+        self.search = data;
+      });
+  }]);
+
+  /**
+   * {{ duration_ms | date:"m:ss 'minutes'"}} breaks for durations greater than 60 minutes
+   */
+  myApp.filter('millSecondsToTimeString', function() {
+    return function(millseconds) {
+      var minutes = Math.floor((millseconds / 1000) / 60);
+      var seconds = Math.round((millseconds - minutes * 1000 * 60) / 1000);
+      var timeString = '';
+      if(minutes >= 0) timeString += minutes + ':';
+      if(seconds >= 0) timeString += seconds + '  minutes';
+      return timeString;
+  }
+  });
 
   myApp.directive('goBack', [function() {
     return {

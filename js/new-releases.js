@@ -14,7 +14,7 @@
         $location.search('offset', null);
       }
       else {
-        loadNewReleases();
+        self.authorize();
       }
     });
 
@@ -31,19 +31,7 @@
       );
     }
 
-    self.nextPage = function() {
-      $http.get(self.albums.next, {
-        headers: {
-          Authorization: self.authData.type + ' ' + self.authData.token
-        }})
-        .success(function(data) {
-          self.albums = data.albums;
-        });
-    }
-
     function loadNewReleases(authData) {
-      if (authData) self.authData = authData;
-
       clearMessages();
       $('*').css('cursor', 'wait');
 
@@ -52,7 +40,7 @@
           offset: $location.search().offset
         },
         headers: {
-          Authorization: self.authData.type + ' ' + self.authData.token
+          Authorization: authData.type + ' ' + authData.token
         }})
         .success(function(data) {
           // todo remove console.log
@@ -64,6 +52,7 @@
     }
 
     function showError(error) {
+      delete self.albums;
       clearMessages();
       if (error === 'popup blocked') self.popupError = true;
       else
