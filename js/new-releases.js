@@ -31,6 +31,10 @@
       );
     }
 
+    self.showAlbum = function(id) {
+      $location.url('/searchalbum/' + id);
+    }
+
     function loadNewReleases(authData) {
       clearMessages();
       $('*').css('cursor', 'wait');
@@ -43,8 +47,6 @@
           Authorization: authData.type + ' ' + authData.token
         }})
         .success(function(data) {
-          // todo remove console.log
-          console.log(data);
           self.albums = data.albums;
           $('body').animate({scrollTop: 0}, 400);
           $('*').css('cursor', '');

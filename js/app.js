@@ -83,7 +83,9 @@
     }
   }]);
 
-  myApp.controller('SettingsController', [function() {
+  myApp.controller('SettingsController', ['$scope', function($scope) {
+    var self = this;
+
     this.setTheme = function(name) {
       $('#css-theme').attr('href', 'css/' + name + '.css');
       localStorage.setItem('css-theme', name);
@@ -100,6 +102,19 @@
     this.setShowSearchbox = function() {
       localStorage.setItem('show-searchbox', this.showSearchbox);
     }
+
+    this.clearBackground = function() {
+      localStorage.removeItem('background');
+      $('.background').css('background-image', '');
+      this.backgroundSet = false;
+    }
+
+    this.backgroundSet = (localStorage.getItem('background') !== null);
+
+    $('.background').on('background-set', function() {
+      self.backgroundSet = (localStorage.getItem('background') !== null);
+      $scope.$apply();
+    });
   }]);
 
   myApp.controller('MainViewController', [function() {

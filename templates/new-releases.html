@@ -2,12 +2,17 @@
   <p ng-if="newReleases.waitingForAuth">Waiting for authorization...</p>
   <a href="" class="color-complement-0" ng-if="newReleases.popupError" ng-click="newReleases.authorize()">Your browser seems to be blocking Spotify's authorization pop-up window. Click on this message to try again.</a>
   <a href="" class="color-complement-0" ng-if="newReleases.authError" ng-click="newReleases.authorize()">Please, log in to Spotify and authorize this app to see new album releases on this page. Click on this message to open the authorization window again.</a>
-  <article ng-show="newReleases.albums">
+  <article class="new-releases" ng-show="newReleases.albums">
     <header>
       <h1>New Releases</h1>
     </header>
-    <ul>
-      <li ng-repeat="album in newReleases.albums.items">{{ album.name }}</li>
+    <ul class="album-list">
+      <li class="album" ng-repeat="album in newReleases.albums.items">
+        <figure>
+          <img class="cover zoom-hover" alt="{{ album.name }}" ng-src="{{ album.images[1].url }}" ng-click="newReleases.showAlbum(album.id)">
+          <figcaption class="name">{{ album.name }}</figcaption>
+        </figure>
+      </li>
     </ul>
   </article>
 

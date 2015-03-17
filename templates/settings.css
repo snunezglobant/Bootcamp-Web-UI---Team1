@@ -67,3 +67,11 @@
   opacity: 1;
 }
 
+.button {
+  margin: 2rem auto;
+  display: block;
+  height: 2rem;
+  border-style: solid;
+  border-width: 1px;
+  background: transparent;
+}
