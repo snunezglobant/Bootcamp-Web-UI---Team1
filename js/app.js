@@ -207,6 +207,12 @@
     $http.get('https://api.spotify.com/v1/albums/' + $routeParams.albumid + '/tracks')
       .success(function(data) {
         self.search = data;
+        // for looping in the items array,
+        // I need this because disc_number is an attribute and can't loop around it
+        self.discNumber = [];
+        for (var i = 0; i < self.search.items[self.search.items.length - 1].disc_number; i++){
+          self.discNumber[i] = i + 1;
+        }
       });
   }]);
 
