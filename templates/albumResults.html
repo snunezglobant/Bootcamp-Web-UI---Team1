@@ -1,14 +1,36 @@
-<div >   
-   <span>ALBUM NAME: {{searchs.name}} <br></span>
-   <span>RELEASE DATE: {{searchs.release_date}} <br></span>
-   <span>POPULARITY: {{searchs.popularity}} <br></span>
-   <span>ARTIST NAME: </span>
-   <div ng-repeat="artist in searchs.artists">{{artist.name}} <br></div>
-  <span>GENRES: </span>
-  <div ng-repeat="genre in searchs.genres">{{genre}} <br></div>
-  <span>COVER: </span>
-  <div>
-  <img ng-src="{{searchs.images[1].url}}" class="cover"> 
-</div>
- <a ng-href="#/searchalbumtracks/{{searchs.id}}">view album tracks</a>
+<div>
+  <table border="0" class="album-table">
+    <tbody>
+      <tr>
+        <td>
+          <img ng-show="searchs.images.length" ng-src="{{searchs.images[1].url}}" class="cover">
+          <img ng-hide="searchs.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover">
+          <p class="center-text"><a ng-href="#/searchalbumtracks/{{searchs.id}}" class="color-complement-2">View album tracks</a></p>
+        </td>
+        <td>
+          <p class="color-complement-0">
+            <b>ALBUM NAME: </b>
+            <span class="color-complement-1">{{searchs.name}}</span>
+          </p>
+          <p class="color-complement-0">
+            <b>RELEASE DATE: </b>
+            <span class="color-complement-1">{{searchs.release_date}}</span>
+          </p>
+          <p class="color-complement-0">
+            <b>POPULARITY: </b>
+            <span class="color-complement-1">{{searchs.popularity}}</span>
+          </p>
+          <p class="color-complement-0" style="display: inline"><b>ARTIST NAME: </b></p>
+          <ul class="color-complement-1">
+            <li ng-repeat="artist in searchs.artists">{{artist.name}}</li>
+          </ul>
+          <p class="color-complement-0"><b>GENRES: </b></p>
+          <ul class="color-complement-1">
+            <li ng-show="searchs.genres.length" ng-repeat="genre in searchs.genres">{{genre}}</li>
+            <li ng-hide="searchs.genres.length">Undefined</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

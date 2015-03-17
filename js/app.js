@@ -111,7 +111,7 @@ myApp.controller('artistRelatedController', ['$scope', '$http','$routeParams', f
 myApp.controller('albumController', ['$scope', '$http','$routeParams', function($scope, $http, $routeParams) {
        $http.get('https://api.spotify.com/v1/albums/'+$routeParams.albumid).success(function(data){
             console.log(data);
-            $scope.searchs = data;              
+            $scope.searchs = data;
             });                                
            
 }]);
@@ -133,5 +133,5 @@ myApp.filter('millSecondsToTimeString', function() {
     if(minutes >= 0) timeString += minutes + ":";
     if(seconds >= 0) timeString += seconds + "  minutes";
     return timeString;
-}
+};
 });
