@@ -26,6 +26,7 @@
       <input type="checkbox" class="searchbox-checkbox zoom-hover" id="searchbox-checkbox" ng-model="settingsCtrl.showSearchbox" ng-change="settingsCtrl.setShowSearchbox()">
       <label for="searchbox-checkbox">Show search box on the main page</label>
     </div>
+  <button class="button background-color-primary-0-hover transparent border-color-primary-0" ng-click="settingsCtrl.clearBackground()" ng-show="settingsCtrl.backgroundSet">Clear background image</button>
   </div>
 </section>
 <button go-back></button>

@@ -1,7 +1,15 @@
-<div ng-repeat="search in artistAlbumsCtrl.search.items">
-  {{search.album_type}}<br>
-  {{search.name}} <br>
-  <a ng-href="#/searchalbumtracks/{{search.id}}" class="color-complement-2"><img ng-src="{{search.images[2].url}}" class="cover"></a>
+ <hr class="hr-details">
+  <h1 class="h1-details">ARTIST ALBUMS</h1>
+  <hr class="hr-details">
+
+<ul class="ul-details" ng-repeat="search in artistAlbumsCtrl.search.items">
+  <div class="div-details">
+   <li class="image-container">
+    <a ng-href="#/searchartist/{{search.id}}"><img class="image-view"ng-show="search.images.length" ng-src="{{search.images[0].url}}" class="cover" >
+      <img class="image-view" ng-show="search.images.length<=0" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover"></li>
+  <li class="text-details"> {{search.name}}</li></a></div>
+</ul>
 </div>
 <nav nav-buttons type="albums" model="artistAlbumsCtrl.search"></nav>
-<button go-back></button>
+
+
