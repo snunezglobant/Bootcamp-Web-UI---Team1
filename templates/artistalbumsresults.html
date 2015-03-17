@@ -1,7 +1,7 @@
 <div ng-repeat="search in artistAlbumsCtrl.search.items">
   {{search.album_type}}<br>
   {{search.name}} <br>
-  <img ng-src="{{search.images[2].url}}" class="cover">
+  <a ng-href="#/searchalbumtracks/{{search.id}}" class="color-complement-2"><img ng-src="{{search.images[2].url}}" class="cover"></a>
 </div>
 <nav nav-buttons type="albums" model="artistAlbumsCtrl.search"></nav>
 <button go-back></button>

@@ -3,9 +3,10 @@
     <tbody>
       <tr>
         <td>
-          <img ng-show="albumCtrl.search.images.length" ng-src="{{albumCtrl.search.images[1].url}}" class="cover">
           <img ng-hide="albumCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover">
-          <p class="center-text"><a ng-href="#/searchalbumtracks/{{searchs.id}}" class="color-complement-2">View album tracks</a></p>
+          <p class="center-text"><a ng-href="#/searchalbumtracks/{{albumCtrl.search.id}}" class="color-complement-2">
+          <img ng-show="albumCtrl.search.images.length" ng-src="{{albumCtrl.search.images[1].url}}" class="cover">
+          <img ng-hide="albumCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover"></a></p>
         </td>
         <td>
           <p class="color-complement-0">
