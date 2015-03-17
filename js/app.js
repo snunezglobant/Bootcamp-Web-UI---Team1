@@ -246,7 +246,7 @@
       var seconds = Math.round((millseconds - minutes * 1000 * 60) / 1000);
       var timeString = '';
       if(minutes >= 0) timeString += minutes + ':';
-      if(seconds >= 0) timeString += seconds + '  minutes';
+      if(seconds >= 0) timeString += seconds + ' minutes';
       return timeString;
   }
   });

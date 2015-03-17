@@ -1,6 +1,8 @@
-<div ng-repeat="track in albumTracksCtrl.search.items">
-  <span>TRACK NAME: {{track.name}} <br></span>
-  <span>TRACK NUMBER: {{track.track_number}} <br></span>
-  <span>TRACK DURATION: {{track.duration_ms | millSecondsToTimeString}} <br></span>
-  <span>DISK NUMBER: {{track.disc_number}} </span>
+<div ng-repeat="discNumber in albumTracksCtrl.discNumber">
+  <h1>Disc {{discNumber}}</h1>
+  <div ng-repeat="track in albumTracksCtrl.search.items">
+    <p ng-show="discNumber === track.disc_number">
+      <b>{{track.track_number}}</b>.- {{track.name}} - <i>{{track.duration_ms | millSecondsToTimeString}}</i>
+    </p>
+  </div>
 </div>
