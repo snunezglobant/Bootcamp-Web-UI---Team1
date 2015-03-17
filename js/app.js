@@ -31,7 +31,8 @@
       .when('/search/:searchvalue', {
         controller: 'SearchController',
         controllerAs: 'searchCtrl',
-        templateUrl: 'templates/searchresults.html'
+        templateUrl: 'templates/searchresults.html',
+        reloadOnSearch: false
       })
       .when('/searchartist/:id', {
         controller: 'ArtistController',
@@ -41,7 +42,8 @@
       .when('/searchartistalbums/:id', {
         controller: 'ArtistAlbumsController',
         controllerAs: 'artistAlbumsCtrl',
-        templateUrl: 'templates/artistalbumsresults.html'
+        templateUrl: 'templates/artistalbumsresults.html',
+        reloadOnSearch: false
       })
       .when('/searchrelatedartist/:artistid', {
         controller: 'ArtistRelatedController',
@@ -114,17 +116,34 @@
     }
   }]);
 
-  myApp.controller('SearchController', ['$http','$routeParams', function($http, $routeParams) {
+  myApp.controller('SearchController', ['$scope', '$http','$routeParams', '$location', function($scope, $http, $routeParams, $location) {
     var self = this;
 
-    $http.get('https://api.spotify.com/v1/search', {
-      params: {
-        q: $routeParams.searchvalue,
-        type: 'album,artist'
-      }})
-      .success(function(data) {
-        self.search = data;
-      });
+    $scope.$on('$routeUpdate', function() {
+      var offset = $location.search().offset;
+
+      if (offset && (offset < 0 || !parseInt(offset))) {
+        offset = 0;
+        $location.search('offset', null);
+      }
+      else {
+        doSearch();
+      }
+    });
+
+    function doSearch() {
+      $http.get('https://api.spotify.com/v1/search', {
+        params: {
+          q: $routeParams.searchvalue,
+          type: 'album,artist',
+          offset: $location.search().offset
+        }})
+        .success(function(data) {
+          self.search = data;
+        });
+    }
+
+    doSearch();
   }]);
 
   myApp.controller('ArtistController', ['$http','$routeParams', function($http, $routeParams) {
@@ -136,13 +155,32 @@
       });
   }]);
 
-  myApp.controller('ArtistAlbumsController', ['$http','$routeParams', function($http, $routeParams) {
+  myApp.controller('ArtistAlbumsController', ['$scope', '$http','$routeParams', '$location', function($scope, $http, $routeParams, $location) {
     var self = this;
 
-    $http.get('https://api.spotify.com/v1/artists/' + $routeParams.id + '/albums')
-      .success(function(data) {
-        self.search = data;
-      });
+    $scope.$on('$routeUpdate', function() {
+      var offset = $location.search().offset;
+
+      if (offset && (offset < 0 || !parseInt(offset))) {
+        offset = 0;
+        $location.search('offset', null);
+      }
+      else {
+        doSearch();
+      }
+    });
+
+    function doSearch() {
+      $http.get('https://api.spotify.com/v1/artists/' + $routeParams.id + '/albums', {
+        params: {
+          offset: $location.search().offset
+        }})
+        .success(function(data) {
+          self.search = data;
+        });
+    }
+
+    doSearch();
   }]);
 
   myApp.controller('ArtistRelatedController', ['$http','$routeParams', function($http, $routeParams) {
@@ -170,6 +208,12 @@
       .success(function(data) {
         self.search = data;
       });
+  }]);
+
+  myApp.controller('MainSearchboxController', ['$location', function($location) {
+    this.search = function() {
+      $location.url('/search/' + $('.mainpage .search-input').val());
+    }
   }]);
 
   /**

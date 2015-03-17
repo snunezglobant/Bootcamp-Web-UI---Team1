@@ -6,6 +6,7 @@
   <img ng-src="{{search.images[2].url}}" class="cover">
   <a ng-href="#/searchartist/{{search.id}}">view artist details</a>
 </div>
+<nav nav-buttons type="artists" model="searchCtrl.search.artists"></nav>
 <h3>ALBUMS</h3>
 <div ng-repeat="search in searchCtrl.search.albums.items">
   {{search.album_type}}<br>
@@ -13,3 +14,4 @@
   <img ng-src="{{search.images[2].url}}" class="cover">
   <a ng-href="#/searchalbum/{{search.id}}">view album details</a>
 </div>
+<nav nav-buttons type="albums" model="searchCtrl.search.albums"></nav>

@@ -1,0 +1,25 @@
+.album-table td{
+  padding: 1.3rem;
+  display: inline-table;
+  height: fit-content;
+  width: auto;
+  margin: 1.3rem;
+}
+
+.cover{
+  display: block;
+  border: 2px solid black;
+  padding: 0;
+}
+
+.album-table ul{
+  list-style: none;
+}
+
+.album-table a{
+  text-decoration: underline;
+}
+
+.center-text{
+  text-align: center;
+}

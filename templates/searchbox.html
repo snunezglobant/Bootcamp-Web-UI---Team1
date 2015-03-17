@@ -1,5 +1,5 @@
-<section class="mainpage">
-  <form class="search-form">
+<section class="mainpage" ng-controller="MainSearchboxController as mainSearchboxCtrl">
+  <form class="search-form" ng-submit="mainSearchboxCtrl.search()">
     <input type="search" class="search-input border-color-primary-0" value="">
     <button type="submit" id="searchbutton" class="search-button nav-button background-color-primary-0-hover transparent border-color-primary-0">Search</button>
   </form>
