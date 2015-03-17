@@ -3,52 +3,34 @@
     <tbody>
       <tr>
         <td>
-          <img ng-show="searchs.images.length" ng-src="{{searchs.images[1].url}}" class="cover">
-          <img ng-hide="searchs.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover">
+          <img ng-show="albumCtrl.search.images.length" ng-src="{{albumCtrl.search.images[1].url}}" class="cover">
+          <img ng-hide="albumCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" class="cover">
           <p class="center-text"><a ng-href="#/searchalbumtracks/{{searchs.id}}" class="color-complement-2">View album tracks</a></p>
         </td>
         <td>
           <p class="color-complement-0">
             <b>ALBUM NAME: </b>
-            <span class="color-complement-1">{{searchs.name}}</span>
+            <span class="color-complement-1">{{albumCtrl.search.name}}</span>
           </p>
           <p class="color-complement-0">
             <b>RELEASE DATE: </b>
-            <span class="color-complement-1">{{searchs.release_date}}</span>
+            <span class="color-complement-1">{{albumCtrl.search.release_date}}</span>
           </p>
           <p class="color-complement-0">
             <b>POPULARITY: </b>
-            <span class="color-complement-1">{{searchs.popularity}}</span>
+            <span class="color-complement-1">{{albumCtrl.search.popularity}}</span>
           </p>
           <p class="color-complement-0" style="display: inline"><b>ARTIST NAME: </b></p>
           <ul class="color-complement-1">
-            <li ng-repeat="artist in searchs.artists">{{artist.name}}</li>
+            <li ng-repeat="artist in albumCtrl.search.artists">{{artist.name}}</li>
           </ul>
           <p class="color-complement-0"><b>GENRES: </b></p>
           <ul class="color-complement-1">
-            <li ng-show="searchs.genres.length" ng-repeat="genre in searchs.genres">{{genre}}</li>
-            <li ng-hide="searchs.genres.length">Undefined</li>
+            <li ng-show="albumCtrl.search.genres.length" ng-repeat="genre in albumCtrl.search.genres">{{genre}}</li>
+            <li ng-hide="albumCtrl.search.genres.length">Undefined</li>
           </ul>
         </td>
       </tr>
     </tbody>
   </table>
-</div>
-<div >
-  <span>ALBUM NAME: {{albumCtrl.search.name}} <br></span>
-  <span>RELEASE DATE: {{albumCtrl.search.release_date}} <br></span>
-  <span>POPULARITY: {{albumCtrl.search.popularity}} <br></span>
-  <span>ARTIST NAME: </span>
-  <div ng-repeat="artist in albumCtrl.search.artists">
-    {{artist.name}} <br>
-  </div>
-  <span>GENRES: </span>
-  <div ng-repeat="genre in albumCtrl.search.genres">
-    {{genre}} <br>
-  </div>
-  <span>COVER: </span>
-  <div>
-    <img ng-src="{{albumCtrl.search.images[1].url}}" class="cover">
-  </div>
-  <a ng-href="#/searchalbumtracks/{{albumCtrl.search.id}}">view album tracks</a>
 </div>
