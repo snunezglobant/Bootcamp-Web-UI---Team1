@@ -1,11 +1,13 @@
-section.themes {
+.themes,
+.main-page {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .theme-item {
   display: inline-block;
   width: 8rem;
-  margin: 2rem;
+  margin: 1rem 2rem;
 }
 
 .set-theme {
@@ -26,3 +28,42 @@ section.themes {
   background: -webkit-linear-gradient(top left, #00336d, #1483ff);
   background: linear-gradient(to bottom right, #00336d, #1483ff);
 }
+
+.checkbox-list {
+  display: inline-block;
+  text-align: left;
+}
+
+.checkbox-item {
+  margin: 0.5rem 0;
+}
+
+.theme-item *,
+.checkbox-item * {
+  cursor: pointer;
+}
+
+.checkbox-item.ng-hide-add,
+.checkbox-item.ng-hide-remove {
+  transition: 400ms;
+}
+
+.checkbox-item.ng-hide-add {
+  opacity: 1;
+}
+
+.checkbox-item.ng-hide-remove {
+  opacity: 0;
+  transform: translateX(2rem);
+}
+
+.checkbox-item.ng-hide-add-active {
+  opacity: 0;
+  transform: translateX(2rem);
+}
+
+.checkbox-item.ng-hide-remove-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+

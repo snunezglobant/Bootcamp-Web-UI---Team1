@@ -1,0 +1,15 @@
+<section ng-controller="NewReleasesController as newReleases">
+  <p ng-if="newReleases.waitingForAuth">Waiting for authorization...</p>
+  <a href="" class="color-complement-0" ng-if="newReleases.popupError" ng-click="newReleases.authorize()">Your browser seems to be blocking Spotify's authorization pop-up window. Click on this message to try again.</a>
+  <a href="" class="color-complement-0" ng-if="newReleases.authError" ng-click="newReleases.authorize()">Please, log in to Spotify and authorize this app to see new album releases on this page. Click on this message to open the authorization window again.</a>
+  <article>
+    <header>
+      <h1>New Releases</h1>
+    </header>
+    <ul>
+      <li ng-repeat="album in newReleases.albums.items">{{ album.name }}</li>
+    </ul>
+  </article>
+
+  <nav nav-buttons class="navigation" type="albums" model="newReleases.albums" ng-show="newReleases.albums"></nav>
+</section>

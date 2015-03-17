@@ -4,11 +4,28 @@
   </header>
 
   <div class="theme-item">
-    <button class="set-theme dark-blue zoom-hover" ng-click="settingsCtrl.setTheme('theme-dark-blue')"></button>
-    <p>Light elements on dark background</p>
+    <button class="set-theme dark-blue zoom-hover" id="theme-dark-blue" ng-click="settingsCtrl.setTheme('theme-dark-blue')"></button>
+    <p><label for="theme-dark-blue">Light elements on dark background</label></p>
   </div>
   <div class="theme-item">
-    <button class="set-theme light-blue zoom-hover" ng-click="settingsCtrl.setTheme('theme-light-blue')"></button>
-    <p>Dark elements on light background</p>
+    <button class="set-theme light-blue zoom-hover" id="theme-light-blue" ng-click="settingsCtrl.setTheme('theme-light-blue')"></button>
+    <p><label for="theme-light-blue">Dark elements on light background</label></p>
   </div>
 </section>
+<section class="main-page">
+  <header>
+    <h1>Main page</h1>
+  </header>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <input type="checkbox" class="newreleases-checkbox zoom-hover" id="newreleases-checkbox" ng-model="settingsCtrl.showReleases" ng-change="settingsCtrl.setShowReleases()">
+      <label for="newreleases-checkbox">Show new album releases on the main page</label>
+    </div>
+    <div class="checkbox-item" ng-hide="settingsCtrl.showReleases">
+      <input type="checkbox" class="searchbox-checkbox zoom-hover" id="searchbox-checkbox" ng-model="settingsCtrl.showSearchbox" ng-change="settingsCtrl.setShowSearchbox()">
+      <label for="searchbox-checkbox">Show search box on the main page</label>
+    </div>
+  </div>
+</section>
+<button go-back></button>

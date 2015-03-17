@@ -4,31 +4,31 @@
 
 /* Main Primary colors */
 .color-primary-0,
-.color-primary-0-hover:hover,
+.color-primary-0-hover:hover:not(:disabled),
 .color-primary-0-hover:focus {
   color: #1483ff;
 }
 
 .color-primary-1,
-.color-primary-1-hover:hover,
+.color-primary-1-hover:hover:not(:disabled),
 .color-primary-1-hover:focus {
   color: #abd3ff;
 }
 
 .color-primary-2,
-.color-primary-2-hover:hover,
+.color-primary-2-hover:hover:not(:disabled),
 .color-primary-2-hover:focus {
   color: #7bbaff;
 }
 
 .color-primary-3,
-.color-primary-3-hover:hover,
+.color-primary-3-hover:hover:not(:disabled),
 .color-primary-3-hover:focus {
   color: #00438e;
 }
 
 .color-primary-4,
-.color-primary-4-hover:hover,
+.color-primary-4-hover:hover:not(:disabled),
 .color-primary-4-hover:focus {
   color: #00336d;
 }
@@ -57,6 +57,19 @@
   background-color: rgba(20, 131, 255, 0.8);
 }
 
+.background-color-primary-0-hover:hover:not(:disabled),
+.background-color-primary-0-hover:focus {
+  background-color: #1483ff;
+}
+
+.background-color-primary-0-hover.transparent:hover:not(:disabled),
+.background-color-primary-0-hover.transparent:focus {
+  background-color: rgba(20, 131, 255, 0.2);
+}
+
+.border-color-primary-0 {
+  border-color: #1483ff;
+}
 
 /* Main Complement color */
 .color-complement-0 {
