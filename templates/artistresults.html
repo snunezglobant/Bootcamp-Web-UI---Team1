@@ -1,24 +1,21 @@
 <diV>
-      <ul class="ul-details">
-        <div class="div-details">
-        <li>
-          <a ng-href="#/searchartistalbums/{{artistCtrl.search.id}}">
-          <img class="image-view" ng-show="artistCtrl.search.images.length" ng-src="{{artistCtrl.search.images[0].url}}">
-          <img class="image-view" ng-hide="artistCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" ></a>          
-        </li>
-        <p class="text-details"> 
-        <a class="album-link" ng-href="#/searchrelatedartist/{{artistCtrl.search.id}}">view related artist</a>
-      </p>
+   <ul class="ul-details">
+      <div class="div-details">
+         <li>          
+            <img class="image-view" ng-show="artistCtrl.search.images.length" ng-src="{{artistCtrl.search.images[0].url}}">
+            <img class="image-view" ng-hide="artistCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" >          
+         </li>
       </div>
-
-      </ul>
-      <ul class="ul-details">
-         <div class="album-information">
-        <li>Name: {{artistCtrl.search.name}}</li>        
-        <li>Popularity: {{artistCtrl.search.popularity}}</li>       
-        <li ng-show="artistCtrl.search.genres.length" ng-repeat="genre in artistCtrl.search.genres">Genres: {{genre}}</li>
-        <li ng-hide="artistCtrl.search.genres.length">Genres: Not genres define</li>    
-         </div> 
-      </ul>
+   </ul>
+   <ul class="ul-details">
+      <div class="album-information">
+         <li>Name: {{artistCtrl.search.name}}</li>
+         <li>Popularity: {{artistCtrl.search.popularity}}</li>
+         <li ng-show="artistCtrl.search.genres.length" ng-repeat="genre in artistCtrl.search.genres">Genres: {{genre}}</li>
+         <li ng-hide="artistCtrl.search.genres.length">Genres: Not genres define</li>
+         <p class="top-style"><a class="btn" ng-href="#/searchartistalbums/{{artistCtrl.search.id}}">View Albums</a></p>
+         <p class="top-style"><a class="btn" ng-href="#/searchrelatedartist/{{artistCtrl.search.id}}">view related artist</a></p>
+      </div>
+   </ul>
 </div>
 <button go-back></button>

@@ -1,23 +1,22 @@
 <div>
-  <ul class="ul-details">
-    <div class="div-details">
-      <li>
-        <a ng-href="#/searchalbumtracks/{{albumCtrl.search.id}}">
-          <img class="image-view" ng-show="albumCtrl.search.images.length" ng-src="{{albumCtrl.search.images[0].url}}">
-          <img class="image-view" ng-hide="albumCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" ></a>
-      </li>
-    </div>
-  </ul>
-  <ul class="ul-details">
-    <div class="album-information">
-      <li>Album name: {{albumCtrl.search.name}}</li>
-      <li>Release Date: {{albumCtrl.search.release_date}}</li>
-      <li>Popularity:{{albumCtrl.search.popularity}}</li>
-      <li  ng-repeat="artist in albumCtrl.search.artists"> Artist name: {{artist.name}}</li>
-      <li ng-show="albumCtrl.search.genres.length" ng-repeat="genre in albumCtrl.search.genres">Genres: {{genre}}</li>
-      <li ng-hide="albumCtrl.search.genres.length">Genres: Not genres define</li>    
-    </div> 
-  </ul>
-
+   <ul class="ul-details">
+      <div class="div-details">
+         <li>
+            <img class="image-view" ng-show="albumCtrl.search.images.length" ng-src="{{albumCtrl.search.images[0].url}}">
+            <img class="image-view" ng-hide="albumCtrl.search.images.length" src="http://www.tropicalpathways.com/images/No_Image_Available.gif" >
+         </li>
+      </div>
+   </ul>
+   <ul class="ul-details">
+      <div class="album-information">
+         <li>Album name: {{albumCtrl.search.name}}</li>
+         <li>Release Date: {{albumCtrl.search.release_date}}</li>
+         <li>Popularity:{{albumCtrl.search.popularity}}</li>
+         <li  ng-repeat="artist in albumCtrl.search.artists"> Artist name: {{artist.name}}</li>
+         <li ng-show="albumCtrl.search.genres.length" ng-repeat="genre in albumCtrl.search.genres">Genres: {{genre}}</li>
+         <li ng-hide="albumCtrl.search.genres.length">Genres: Not genres define</li>
+      </div>
+      <p class="top-style"><a class="btn" ng-href="#/searchalbumtracks/{{albumCtrl.search.id}}">View Album Tracks</a></p>
+   </ul>
 </div>
 <button go-back></button>
