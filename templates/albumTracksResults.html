@@ -1,8 +1,10 @@
 <div ng-repeat="discNumber in albumTracksCtrl.discNumber">
-  <h1>Disc {{discNumber}}</h1>
+  <h1 class="color-complement-2">Disc {{discNumber}}</h1>
   <div ng-repeat="track in albumTracksCtrl.search.items">
     <p ng-show="discNumber === track.disc_number">
-      <b>{{track.track_number}}</b>.- {{track.name}} - <i>{{track.duration_ms | millSecondsToTimeString}}</i>
+      <b class="color-complement-0">{{track.track_number}}.-</b>
+      <span class="color-complement-1">{{track.name}} - </span>
+      <i class="color-complement-0">{{track.duration_ms | millSecondsToTimeString}}</i>
     </p>
   </div>
   <button go-back></button>
