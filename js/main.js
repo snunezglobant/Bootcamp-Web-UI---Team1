@@ -7,6 +7,8 @@
   if (!localStorage.getItem('css-theme')) localStorage.setItem('css-theme', 'theme-dark-blue');
   if (!localStorage.getItem('show-releases')) localStorage.setItem('show-releases', 'false');
   if (!localStorage.getItem('show-searchbox')) localStorage.setItem('show-searchbox', 'true');
+  if (!localStorage.getItem('use-glass')) localStorage.setItem('use-glass', 'false');
+  if (!localStorage.getItem('text-outline')) localStorage.setItem('text-outline', 'false');
 
   /**
    * Load theme
@@ -57,6 +59,15 @@
   );
 
   $(document).ready(function() {
+    /**
+     * Load settings from localStorage
+     */
+    if (JSON.parse(localStorage.getItem('use-glass'))) {
+      $('.main').addClass('glass');
+    }
+    if (JSON.parse(localStorage.getItem('text-outline'))) {
+      $('body').addClass('text-outline');
+    }
 
     /**
      * Automatically focus the search box when document is loaded

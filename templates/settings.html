@@ -19,6 +19,14 @@
 
   <div class="checkbox-list">
     <div class="checkbox-item">
+      <input type="checkbox" class="glass-checkbox zoom-hover" id="glass-checkbox" ng-model="settingsCtrl.useGlass" ng-change="settingsCtrl.setUseGlass()">
+      <label for="glass-checkbox">Glass-like main container</label>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" class="outline-checkbox zoom-hover" id="outline-checkbox" ng-model="settingsCtrl.showOutline" ng-change="settingsCtrl.setShowOutline()">
+      <label for="outline-checkbox">Show text outline for improved contrast</label>
+    </div>
+    <div class="checkbox-item">
       <input type="checkbox" class="newreleases-checkbox zoom-hover" id="newreleases-checkbox" ng-model="settingsCtrl.showReleases" ng-change="settingsCtrl.setShowReleases()">
       <label for="newreleases-checkbox">Show new album releases on the main page</label>
     </div>
@@ -26,7 +34,7 @@
       <input type="checkbox" class="searchbox-checkbox zoom-hover" id="searchbox-checkbox" ng-model="settingsCtrl.showSearchbox" ng-change="settingsCtrl.setShowSearchbox()">
       <label for="searchbox-checkbox">Show search box on the main page</label>
     </div>
-  <button class="button background-color-primary-0-hover transparent border-color-primary-0" ng-click="settingsCtrl.clearBackground()" ng-show="settingsCtrl.backgroundSet">Clear background image</button>
+  <button class="flat-button clear-background background-color-primary-0 background-color-primary-0-hover transparent2 border-color-primary-0" ng-click="settingsCtrl.clearBackground()" ng-show="settingsCtrl.backgroundSet">Clear background image</button>
   </div>
 </section>
 <button go-back></button>

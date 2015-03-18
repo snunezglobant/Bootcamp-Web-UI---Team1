@@ -1,28 +1,37 @@
-.new-releases .album-list {
-  list-style-type: none;
+.new-releases {
   text-align: center;
+}
+
+.new-releases .album-list {
+  padding: 0;
+
+  list-style-type: none;
 }
 
 .new-releases .album {
   display: inline-block;
-  vertical-align: top;
   width: 10rem;
   margin: 1rem;
+
+  vertical-align: top;
 }
 
 .new-releases figure {
-  text-align: center;
   margin: 0;
+
+  text-align: center;
 }
 
 .new-releases .album .cover {
-  cursor: pointer;
   width: 10rem;
   height: 10rem;
   margin: 0 auto;
+
   border: none;
+
+  cursor: pointer;
 }
 
 .new-releases .album .name {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }

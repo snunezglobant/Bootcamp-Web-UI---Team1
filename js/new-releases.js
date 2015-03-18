@@ -48,7 +48,7 @@
         }})
         .success(function(data) {
           self.albums = data.albums;
-          $('body').animate({scrollTop: 0}, 400);
+          $('body').animate({scrollTop: 0}, 600);
           $('*').css('cursor', '');
     });
     }

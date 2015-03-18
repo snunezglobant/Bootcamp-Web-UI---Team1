@@ -65,10 +65,26 @@
       });
   }]);
 
-  myApp.run(['$rootScope', function($rootScope) {
+  myApp.run(['$rootScope', '$location', function($rootScope, $location) {
     $rootScope.$on('$routeChangeSuccess', function(event, next, current) {
+      /**
+       * Validate route change so that a 'Back' button is displayed.
+       * The button serves no purpose if there is no previous page, the previous page is blank, or a different website.
+       */
       if (current) {
         validPreviousRoute = true;
+      }
+
+      /**
+       * If the search box is visible on the main page, it's useless to show it in the topbar
+       */
+      if ($location.path() === '/' &&
+        JSON.parse(localStorage.getItem('show-searchbox')) &&
+        !JSON.parse(localStorage.getItem('show-releases'))) {
+          $('.topbar .search-form').fadeOut();
+      }
+      else {
+        $('.topbar .search-form').fadeIn();
       }
     });
   }]);
@@ -90,6 +106,22 @@
       $('#css-theme').attr('href', 'css/' + name + '.css');
       localStorage.setItem('css-theme', name);
     };
+
+    this.useGlass = JSON.parse(localStorage.getItem('use-glass'));
+
+    this.setUseGlass = function() {
+      localStorage.setItem('use-glass', this.useGlass);
+      if (this.useGlass) $('.main').addClass('glass');
+      else $('.main').removeClass('glass');
+    }
+
+    this.showOutline = JSON.parse(localStorage.getItem('text-outline'));
+
+    this.setShowOutline = function() {
+      localStorage.setItem('text-outline', this.showOutline);
+      if (this.showOutline) $('body').addClass('text-outline');
+      else $('body').removeClass('text-outline');
+    }
 
     this.showReleases = JSON.parse(localStorage.getItem('show-releases'));
 
@@ -229,6 +261,9 @@
     this.search = function() {
       $location.url('/search/' + $('.mainpage .search-input').val());
     }
+
+    // focus the search input automatically when the template is loaded
+    $('.mainpage .search-input').focus();
   }]);
 
   /**
@@ -251,7 +286,7 @@
       template: '<span class="icon-arrow-back"></span>Back',
       link: function($scope, element, attributes, controller) {
         if (validPreviousRoute) {
-          element.addClass('back-button background-color-primary-0-hover transparent border-color-primary-0');
+          element.addClass('flat-button back background-color-primary-0 background-color-primary-0-hover transparent2 border-color-primary-0');
           element.bind('click', function() {
             history.back();
           });

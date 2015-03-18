@@ -57,14 +57,18 @@
   background-color: rgba(20, 131, 255, 0.8);
 }
 
+.background-color-primary-0.transparent2 {
+  background-color: rgba(20, 131, 255, 0.2);
+}
+
 .background-color-primary-0-hover:hover:not(:disabled),
 .background-color-primary-0-hover:focus {
   background-color: #1483ff;
 }
 
-.background-color-primary-0-hover.transparent:hover:not(:disabled),
-.background-color-primary-0-hover.transparent:focus {
-  background-color: rgba(20, 131, 255, 0.2);
+.background-color-primary-0-hover.transparent2:hover:not(:disabled),
+.background-color-primary-0-hover.transparent2:focus {
+  background-color: rgba(20, 131, 255, 0.4);
 }
 
 .border-color-primary-0 {
@@ -94,4 +98,8 @@
 
 body {
   color: #fff;
+}
+
+.text-outline {
+  text-shadow: -1px -1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000, 1px 1px 3px #000;
 }

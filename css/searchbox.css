@@ -1,0 +1,24 @@
+.mainpage .search-form {
+  width: 60%;
+  min-width: 15rem;
+  margin-top: 10rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mainpage .search-input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+
+  border-width: 1px;
+  border-style: solid;
+}
+
+.flat-button.search {
+  display: block;
+  width: 10rem;
+  margin: 1rem auto;
+}

@@ -1,7 +1,8 @@
 .themes,
 .main-page {
-  text-align: center;
   margin-bottom: 2rem;
+
+  text-align: center;
 }
 
 .theme-item {
@@ -31,6 +32,7 @@
 
 .checkbox-list {
   display: inline-block;
+
   text-align: left;
 }
 
@@ -45,6 +47,7 @@
 
 .checkbox-item.ng-hide-add,
 .checkbox-item.ng-hide-remove {
+  -webkit-transition: 400ms;
   transition: 400ms;
 }
 
@@ -54,24 +57,28 @@
 
 .checkbox-item.ng-hide-remove {
   opacity: 0;
+  -webkit-transform: translateX(2rem);
+  -ms-transform: translateX(2rem);
   transform: translateX(2rem);
 }
 
 .checkbox-item.ng-hide-add-active {
   opacity: 0;
+  -webkit-transform: translateX(2rem);
+  -ms-transform: translateX(2rem);
   transform: translateX(2rem);
 }
 
 .checkbox-item.ng-hide-remove-active {
-  transform: translateX(0);
   opacity: 1;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }
 
-.button {
-  margin: 2rem auto;
+.clear-background {
   display: block;
   height: 2rem;
-  border-style: solid;
-  border-width: 1px;
-  background: transparent;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }

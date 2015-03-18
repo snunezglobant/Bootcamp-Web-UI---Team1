@@ -1,8 +1,8 @@
 <div ng-show="model.items.length">
   <p>Showing {{ type }} {{ model.offset + 1 }} to {{ model.offset + model.limit < model.total && model.offset + model.limit || model.total }} of {{ model.total }}</p>
   <div ng-hide="model.offset + 1 === 1 && (model.offset + model.limit < model.total && model.offset + model.limit || model.total) === model.total">
-    <button class="nav-button background-color-primary-0-hover transparent border-color-primary-0" ng-click="previousPage()" ng-disabled="model.offset + 1 === 1"><span class="icon-navigate-before"></span>Previous page</button>
-    <button class="nav-button background-color-primary-0-hover transparent border-color-primary-0" ng-click="nextPage()" ng-disabled="(model.offset + model.limit < model.total && model.offset + model.limit || model.total) === model.total">Next page<span class="icon-navigate-next"></span></button>
+    <button class="flat-button nav background-color-primary-0 background-color-primary-0-hover transparent2 border-color-primary-0" ng-click="previousPage()" ng-disabled="model.offset + 1 === 1"><span class="icon-navigate-before"></span>Previous page</button>
+    <button class="flat-button nav background-color-primary-0 background-color-primary-0-hover transparent2 border-color-primary-0" ng-click="nextPage()" ng-disabled="(model.offset + model.limit < model.total && model.offset + model.limit || model.total) === model.total">Next page<span class="icon-navigate-next"></span></button>
   </div>
 </div>
-<p ng-hide="model.items.length">No {{ type }} found.</p>
+<p ng-if="model" ng-hide="model.items.length">No {{ type }} found.</p>
