@@ -282,7 +282,7 @@
       var timeString = '';
       if(minutes >= 0) timeString += minutes + ':';
       if(seconds >= 0 && seconds < 10) timeString += '0' + seconds;
-      else timestring += seconds;
+      else timeString += seconds;
       return timeString;
   }
   });
