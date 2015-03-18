@@ -159,6 +159,7 @@
       }
       else {
         this.templateUrl = null;
+        $('.view').hide();
       }
     }
   }]);
@@ -167,30 +168,54 @@
     var self = this;
 
     $scope.$on('$routeUpdate', function() {
-      var offset = $location.search().offset;
+      var offsetArtists = $location.search().offsetArtists;
+      var offsetAlbums = $location.search().offsetAlbums;
 
-      if (offset && (offset < 0 || !parseInt(offset))) {
-        offset = 0;
-        $location.search('offset', null);
+      if (offsetArtists && (offsetArtists < 0 || !parseInt(offsetArtists))) {
+        offsetArtists = 0;
+        $location.search('offsetArtists', null);
       }
       else {
-        doSearch();
+        searchArtists();
+      }
+
+      if (offsetAlbums && (offsetAlbums < 0 || !parseInt(offsetAlbums))) {
+        offsetAlbums = 0;
+        $location.search('offsetAlbums', null);
+      }
+      else {
+        searchAlbums();
       }
     });
 
-    function doSearch() {
+    function searchArtists() {
       $http.get('https://api.spotify.com/v1/search', {
         params: {
           q: $routeParams.searchvalue,
-          type: 'album,artist',
-          offset: $location.search().offset
+          type: 'artist',
+          offset: $location.search().offsetArtists
         }})
         .success(function(data) {
-          self.search = data;
+          if (!self.search) self.search = {};
+          self.search.artists = data.artists;
         });
     }
 
-    doSearch();
+    function searchAlbums() {
+      $http.get('https://api.spotify.com/v1/search', {
+        params: {
+          q: $routeParams.searchvalue,
+          type: 'album',
+          offset: $location.search().offsetAlbums
+        }})
+        .success(function(data) {
+          if (!self.search) self.search = {};
+          self.search.albums = data.albums;
+        });
+    }
+
+    searchArtists();
+    searchAlbums();
   }]);
 
   myApp.controller('ArtistController', ['$http','$routeParams', function($http, $routeParams) {
@@ -309,17 +334,21 @@
     return {
       scope: {
         type: '@',
-        model: '='
+        model: '=',
+        offsetSufix: '@'
       },
       controller: function($scope, $element, $attrs, $transclude) {
         $scope.previousPage = function() {
           var newOffset = parseInt(Math.max($scope.model.offset - $scope.model.limit, 0));
-          $location.search('offset', newOffset);
+
+          $location.search('offset' + ($scope.offsetSufix || '') + $scope.offsetSufix, newOffset);
         }
 
         $scope.nextPage = function() {
           var newOffset = parseInt($scope.model.offset + $scope.model.limit);
-          $location.search('offset', newOffset);
+
+          $location.search('offset' + ($scope.offsetSufix || ''), newOffset);
+          console.log($scope.offsetSufix || '');
         }
       },
       restrict: 'A',
