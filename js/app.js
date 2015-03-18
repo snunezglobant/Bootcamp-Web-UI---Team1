@@ -342,7 +342,7 @@
         $scope.previousPage = function() {
           var newOffset = parseInt(Math.max($scope.model.offset - $scope.model.limit, 0));
 
-          $location.search('offset' + ($scope.offsetSufix || '') + $scope.offsetSufix, newOffset);
+          $location.search('offset' + ($scope.offsetSufix || ''), newOffset);
         }
 
         $scope.nextPage = function() {
